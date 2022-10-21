@@ -2146,7 +2146,8 @@ abstract class REST_Controller extends \CI_Controller {
      */
     protected function _log_access_time()
     {
-        $payload['rtime'] = $this->_end_rtime - $this->_start_rtime;
+        $end_rtime = $this->_end_rtime;
+        $payload['rtime'] = $end_rtime - $this->_start_rtime;
 
         return $this->rest->db->update(
                 $this->config->item('rest_logs_table'), $payload, [
